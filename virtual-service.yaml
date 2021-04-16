@@ -4,8 +4,18 @@ metadata:
   name: java-demo-vs
   namespace: testing
 spec:
-  awsName: java-demo.testing.svc.cluster.local
+  awsName: java-demo-svc.testing.svc.cluster.local
   provider:
     virtualRouter:
       virtualRouterRef:
         name: java-demo-vr
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: java-demo-svc
+  namespace: testing
+spec:
+  ports:
+    - port: 8080
+      name: http
